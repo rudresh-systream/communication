@@ -28,3 +28,15 @@ alias(
     actual = "//score/mw/com/example/ipc_bridge:ipc_bridge_rs",
     visibility = ["//visibility:public"],
 )
+
+alias(
+    name = "demo_server",
+    actual = "//score/mw/com/example/systream_demo:demo_server",
+    visibility = ["//visibility:public"],
+)
+
+alias(
+    name = "demo_client",
+    actual = "//score/mw/com/example/systream_demo:demo_client",
+    visibility = ["//visibility:public"],
+)

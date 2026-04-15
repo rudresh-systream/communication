@@ -73,6 +73,42 @@ monitor.write_tire_data(Tire { pressure: 5.0 }).unwrap();
 let tire_data = monitor.read_tire_data().unwrap();
 ```
 
+
+## Systream Demo — Getting-Started Example
+
+> **Recommended starting point for new developers.**
+> A minimal two-process demo (server + client) exchanging a simple SensorData
+> struct over shared memory. Heavily annotated — every API call explains what
+> LoLa does internally.
+
+### Build
+
+```bash
+bazel build //examples:demo_server //examples:demo_client
+# or
+bazel build //score/mw/com/example/systream_demo/...
+```
+
+### Run (Two Terminals)
+
+**Terminal 1 — Server (start this first):**
+```bash
+./bazel-bin/score/mw/com/example/systream_demo/demo_server \
+  --service_instance_manifest \
+  score/mw/com/example/systream_demo/etc/mw_com_config.json \
+  --cycle-time 500 --num-cycles 20
+```
+
+**Terminal 2 — Client:**
+```bash
+./bazel-bin/score/mw/com/example/systream_demo/demo_client \
+  --service_instance_manifest \
+  score/mw/com/example/systream_demo/etc/mw_com_config.json \
+  --num-samples 20
+```
+
+See `score/mw/com/example/systream_demo/README.md` for the full guide.
+
 ## IPC Bridge
 
 ### Standard Build (Host Platform)

@@ -1,0 +1,50 @@
+{
+  "serviceTypes": [
+    {
+      "serviceTypeName": "/systream/demo/SensorService",
+      "version": {
+        "major": 1,
+        "minor": 0
+      },
+      "bindings": [
+        {
+          "binding": "SHM",
+          "serviceId": 9001,
+          "events": [
+            {
+              "eventName": "sensor_reading",
+              "eventId": 1
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "serviceInstances": [
+    {
+      "instanceSpecifier": "systream/demo/SensorService",
+      "serviceTypeName": "/systream/demo/SensorService",
+      "version": {
+        "major": 1,
+        "minor": 0
+      },
+      "instances": [
+        {
+          "instanceId": 1,
+          "asil-level": "QM",
+          "binding": "SHM",
+          "shm-size": 65536,
+          "control-qm-shm-size": 32768,
+          "events": [
+            {
+              "eventName": "sensor_reading",
+              "numberOfSampleSlots": 10,
+              "maxSubscribers": 5,
+              "numberOfIpcTracingSlots": 0
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
